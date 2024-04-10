@@ -12,3 +12,4 @@ env
 beautifulsoup
 pip
 decouple
+tkinter
