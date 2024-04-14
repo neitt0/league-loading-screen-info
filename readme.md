@@ -13,3 +13,4 @@ beautifulsoup
 pip
 decouple
 tkinter
+pillow

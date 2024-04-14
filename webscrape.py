@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 def getJgPathLink(arr):
-  dict = {}
+  container = {}
 
   for champion in arr:
     jgDict = {}
@@ -14,15 +14,17 @@ def getJgPathLink(arr):
     soup = BeautifulSoup(req.text, 'html.parser')
     images = soup.find_all('img')
 
+    # loop through {images} and assign {i} as key and link as value
     i = 0
     for image in images:
       if image['src'][-4] == 'w':
-
-        jgDict[ f'{i}' ] = image['src']
+        # append to jgDict
+        jgDict[ f"link #{i}" ] = image['src']
         i+=1
     i = 0
 
-    dict[champion] = jgDict
+    # append jgDict to main container
+    container[champion] = jgDict
   
-  print(dict)
-  return dict
+  print(container)
+  return container

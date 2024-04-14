@@ -1,6 +1,7 @@
 import requests
 from decouple import config
 from webscrape import getJgPathLink
+from loadImage import display_image_from_url
 
 # needs to restart terminal every time it is updated
 api_key = config('RIOT_API_KEY')
@@ -9,8 +10,8 @@ api_key = config('RIOT_API_KEY')
 # CHANGE LATER
 regionFull = 'europe'
 regionShort = 'euw1'
-summonerName = 'xolaanis%20daddy'
-tag = '4353'
+summonerName = 'Fix%20W%20Pull'
+tag = '333'
 
 # code works (i do kn how now)
 # summoner v1
@@ -59,10 +60,13 @@ def getJgInGame():
     championKey = jungler['championId']
     for champion in championsDDragon:
       if championKey == int(championsDDragon[champion]['key']):
+        # champion str has to be lowercase
+        # replace space with "-"
         jgChamList.append(champion.lower())
 
   print(jgChamList)
 
   return jgChamList
 
-getJgPathLink(getJgInGame())
+pathLinks = getJgPathLink(getJgInGame())
+display_image_from_url(pathLinks)
