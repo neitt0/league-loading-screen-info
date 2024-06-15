@@ -1,0 +1,7 @@
+in order to display multiple images in tkinter,
+append each image into a list,
+use grid to display them
+
+so to have 2 sets of images (2 champions),
+append the set of images to the set,
+append the set to the main list
